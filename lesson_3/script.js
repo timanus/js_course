@@ -2,7 +2,10 @@
 
 let money, time, necessaryExpences, cost;  // Объявление переменных
 
-money = +prompt('Ваш бюджет на месяц?', ''); 
+do {
+	money = +prompt('Ваш бюджет на месяц?', '');
+} while (isNaN(money || money == null || money == ''));
+
 time = prompt('Введите дату в формате YYYY-MM-DD', '');
 
 let appData = {
@@ -11,7 +14,7 @@ let appData = {
 	expences: {},
 	optionalExpences: {},
 	income: [],
-	savings: false
+	savings: true
 };
 
 
@@ -109,8 +112,16 @@ function chooseOptExpences() {
 	}
 }
 
+function checkSavings() {
+	if (appData.savings == true) {
+		let save = +prompt('Какова сумма накоплений?', ''),
+			 percent = +prompt('Под какой процент?', '');
+		appData.monthIncome = (save/100/12*percent).toFixed();
+		alert('Доход в месяц с вашего депозита: ', + appData.monthIncome);
+	}
+}
 
-
+checkSavings();
 
 
 
