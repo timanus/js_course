@@ -162,14 +162,3 @@ for (let prop in appData) {
 // 	appData.expences[necessaryExpences] = cost;
 // 	i++;
 // } while (i < 2);
-
-
-
-
-
-
-
-
-
-
-
